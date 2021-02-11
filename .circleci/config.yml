@@ -30,24 +30,9 @@ jobs:
             - v1-dependencies-{{ checksum "build.gradle" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-
-      - run: gradle dependencies
-             command: |
-             sdk install gradle 6.8.2
-     - run:  gradle build
-              command: |
-              ./gradlew build
-     - run:  build jar
-              command: |
-              jar tvf build/libs/initial.jar
-    - run:  gradle run
-              command: |
-              ./gradlew run           
-     - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "build.gradle" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+            
+             -sdk install gradle 6.8.2
+             
       - save_cache:
           paths:
             - ~/.gradle/wrapper
