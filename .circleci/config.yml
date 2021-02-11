@@ -25,14 +25,31 @@ jobs:
       - checkout # check out source code to working directory
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
        # Download and cache dependencies
+       
+          
+      - run:
+          name: gradle dependencies
+          command: |
+                sdk install gradle 6.8.2
+                
+      - run:
+          name: gradle build
+          command: |
+           ./gradlew build
+      - run:
+          name:  build jar
+          command: |
+            jar tvf build/libs/initial.jar
+      - run:
+         name:  gradle run
+         command: |
+              ./gradlew run    
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "build.gradle" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
             
-             -sdk install gradle 6.8.2
-             
       - save_cache:
           paths:
             - ~/.gradle/wrapper
