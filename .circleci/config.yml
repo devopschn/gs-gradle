@@ -37,8 +37,8 @@ jobs:
       - run:
           name: gradle build
           command: |
-            ls
-          # gradle build
+            initial
+            gradle build
       - run:
           name:  build jar
           command: |
