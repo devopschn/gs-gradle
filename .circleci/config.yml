@@ -37,7 +37,8 @@ jobs:
       - run:
           name: gradle build
           command: |
-           /home/circleci/gs-gradle/initial./gradlew build
+           cd gs-gradle/initial
+           gradle build
       - run:
           name:  build jar
           command: |
