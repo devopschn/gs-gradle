@@ -43,12 +43,12 @@ jobs:
           name:  build jar
           command: |
             cd initial/build/libs
-            ls
-          #  jar tvf build/libs/initial.jar
+            jar tvf build/libs/gs-gradle-0.1.0.jar
       - run:
          name:  gradle run
          command: |
-              ./gradlew run    
+              cd initial
+              gradle run    
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "build.gradle" }}
