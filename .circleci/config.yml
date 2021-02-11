@@ -43,7 +43,8 @@ jobs:
           name:  build jar
           command: |
             cd initial/build/libs
-            jar tvf build/libs/gs-gradle-0.1.0.jar
+            ls
+            jar tvf initial/build/libs/gs-gradle-0.1.0.jar
       - run:
          name:  gradle run
          command: |
