@@ -55,16 +55,16 @@ jobs:
               gradle run    
       - restore_cache:
           paths:
-            - ~/initial
+            - ~/.initial
           keys:
-            - v1-dependencies-{{ checksum "build.gradle" }}
+            - v1-dependencies-{{ initial "build.gradle" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
             
       - save_cache:
           paths:
             - ~/initial
-          key: v1-gradle-wrapper-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
+          key: v1-gradle-wrapper-{{ initial/gradle/wrapper/gradle-wrapper.properties }}
       - save_cache:
           paths:
             - ~/initial
@@ -85,7 +85,7 @@ jobs:
       - save_cache:
           paths:
             - ~/initial
-          key: v1-dependencies-{{ checksum "build.gradle" }}
+          key: v1-dependencies-{{ initial "build.gradle" }}
 
       # run tests!
-      - run: gradle test
+    #  - run: gradle test
