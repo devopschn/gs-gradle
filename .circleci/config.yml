@@ -42,7 +42,9 @@ jobs:
       - run:
           name:  build jar
           command: |
-            jar tvf build/libs/initial.jar
+            cd initial/build/libs
+            ls
+          #  jar tvf build/libs/initial.jar
       - run:
          name:  gradle run
          command: |
