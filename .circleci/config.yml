@@ -74,4 +74,4 @@ workflows:
     jobs:
     - build 
       # run tests!
-      - run: gradle test
+      
